@@ -89,6 +89,9 @@
   .vcl .meta{text-align:center;margin-top:16px;color:var(--muted)}
   @media (max-width:860px){.vcl .cta-float{bottom:6%}}
   @media (max-width:560px){.vcl .cta-float{bottom:5%}}
+
+  /* Fade-out do botão após ativar o som */
+  #btn-audio.fade-out { transition: opacity .6s ease, transform .6s ease; opacity: 0; transform: translateY(6px); pointer-events: none; }
 </style>
 </head>
 <body>
@@ -140,7 +143,7 @@
       <div class="container" style="padding-top:12px;">
         <div class="frame" id="vcl-frame">
           <iframe id="vcl-player" class="yt"
-            src="https://www.youtube-nocookie.com/embed/MLETDoksxOw?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=MLETDoksxOw"
+            src="https://www.youtube-nocookie.com/embed/MLETDoksxOw?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=MLETDoksxOw&enablejsapi=1"
             title="Apresentação — The 153 Bridge"
             allow="autoplay; encrypted-media; picture-in-picture; accelerometer; clipboard-write; gyroscope; web-share"
             allowfullscreen></iframe>
@@ -153,7 +156,7 @@
             <button id="btn-audio" class="btn" type="button" style="cursor:pointer">🔊 Ativar som</button>
           </div>
         </div>
-        <div class="meta">Toque em “Ativar som” para ouvir o vídeo sem sair da página.</div>
+        <div class="meta" id="audio-hint">Toque em “Ativar som” para ouvir o vídeo sem sair da página.</div>
       </div>
     </section>
 
@@ -230,7 +233,7 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 
-<!-- Normalizador para qualquer CTA com o label 'Entrar no grupo GRATUITO' -->
+<!-- Normalizador para qualquer CTA com o label 'Entrar no grupo GRATUITO' (mantido do seu arquivo) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var wa = "https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=github&utm_medium=cta&utm_campaign=grupo_whatsapp";
@@ -262,16 +265,30 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Botão "Ativar som" com fallback e fade-out após sucesso
   document.addEventListener('click', function(ev){
     var btn = ev.target.closest('#btn-audio');
     if (!btn || !ytPlayer) return;
+    var hint = document.getElementById('audio-hint');
     try {
-      ytPlayer.unMute();
       ytPlayer.setVolume(100);
-      btn.textContent = '🔊 Som ativado';
-      btn.disabled = true;
-      btn.style.opacity = '.9';
-    } catch(_) {}
+      ytPlayer.playVideo();
+      ytPlayer.unMute();
+      ytPlayer.playVideo();
+      setTimeout(function() {
+        if (typeof ytPlayer.isMuted === 'function' && !ytPlayer.isMuted()) {
+          btn.textContent = '🔊 Som ativado';
+          btn.disabled = true;
+          btn.classList.add('fade-out');
+          if (hint) hint.textContent = 'Som ligado ✅';
+        } else {
+          if (hint) hint.textContent = 'Se ainda estiver sem som, toque novamente.';
+        }
+      }, 250);
+    } catch(_) {
+      if (hint) hint.textContent = 'Toque novamente para ativar o som.';
+    }
   });
 </script>
 
