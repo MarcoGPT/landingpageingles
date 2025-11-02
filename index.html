@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-<!-- GitHub Pages canonical and OG tags -->
-<link rel="canonical" href="https://marcogpt.github.io/landingpageingles/">
-<meta property="og:url" content="https://marcogpt.github.io/landingpageingles/">
-<meta property="og:title" content="The 153 Bridge - Dicas Diárias de Inglês">
-<meta property="og:description" content="Entre gratuitamente no grupo de WhatsApp e receba uma dica de inglês por dia.">
-<meta property="og:image" content="https://marcogpt.github.io/landingpageingles/assets/hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The 153 Bridge — Dicas Diárias de Inglês no WhatsApp</title>
@@ -152,6 +143,21 @@
   .hero-copy-block { margin-top: 24px; }
 }
 
+
+/* ===== Botão WhatsApp (verde oficial) ===== */
+.btn-whatsapp{
+  background: linear-gradient(90deg, #25D366, #1ebe57);
+  box-shadow: 0 10px 22px rgba(37,211,102,.25);
+  color:#fff !important;
+  border:none;
+}
+.btn-whatsapp:hover{ transform: translateY(-1px); opacity:.96 }
+.btn-whatsapp:focus{ outline: 2px solid rgba(37,211,102,.45); outline-offset:2px; }
+/* Z-index e proteção contra overlays bloquearem o clique */
+.hero-copy{ position: relative; z-index: 3; }
+.hero-photo{ position: relative; z-index: 1; }
+.hero-photo::before, .hero-photo::after{ pointer-events: none; }
+
 </style>
 </head>
 <body>
@@ -160,7 +166,7 @@
       <div class="logo" aria-label="The 153 Bridge logo"></div>
       <div class="brand">The 153 Bridge</div>
     </div>
-    <nav><a class="btn-ghost" href="#entrar">Entrar no grupo</a></nav>
+    <nav><a class="btn btn-whatsapp-ghost" href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp" target="_blank" rel="noopener" aria-label="Entrar no grupo oficial do WhatsApp">Entrar no grupo</a></nav>
   </header>
 
   <main>
@@ -174,7 +180,7 @@
     </figure>
 
     <div class="hero-copy-block">
-      <span class="tag">Inglês para todos  • 100% gratuito</span>
+      <span class="tag">Inglês para todosXXX  • 100% gratuito</span>
       <h1 style="margin-top:16px;">
         Aprenda inglês com conteúdo diário.<br>
         <span style="color:#7dd3fc">Na palma</span> da sua mão, direto no seu WhatsApp.
@@ -187,7 +193,7 @@
       </div>
       <div class="cta-row" style="margin-top:22px;">
         <a class="btn"
-           href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=github&utm_medium=cta&utm_campaign=grupo_whatsapp"
+           href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp"
            target="_blank" rel="noopener" aria-label="Entrar no grupo oficial do WhatsApp">Entrar no grupo GRATUITO</a>
         <a class="btn-ghost" href="#como-funciona">Como funciona</a>
       </div>
@@ -248,7 +254,7 @@
         <li>Entre no grupo gratuito do WhatsApp.</li>
         <li>Receba todos os dias uma nova dica para evoluir.</li>
       </ul>
-      <p class="center"><a class="btn" id="entrar" href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=github&utm_medium=cta&utm_campaign=grupo_whatsapp" target="_blank" rel="noopener">Entrar agora no grupo gratuito (WhatsApp)</a></p>
+      <p class="center"><a class="btn" id="entrar" href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp" target="_blank" rel="noopener">Entrar agora no grupo gratuito (WhatsApp)</a></p>
     </section>
 
     <!-- SOBRE -->
