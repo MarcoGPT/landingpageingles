@@ -144,25 +144,21 @@
 }
 
 
-/* ===== Botões padrão (WhatsApp Green) ===== */
-.btn{
+/* ===== Botões WhatsApp (verde aplicado em TODOS os .btn) ===== */
+.btn, .btn-whatsapp{
   display:inline-block;
-  padding:14px 18px;
+  padding:14px 22px;
   border-radius:14px;
-  font-weight:800;
-  background: linear-gradient(90deg, #25D366, #1ebe57);
-  box-shadow:0 10px 22px rgba(37,211,102,.25);
+  font-weight:700;
   text-decoration:none;
   color:#fff !important;
   border:none;
-  transition:.2s;
+  background: linear-gradient(90deg, #25D366, #1ebe57);
+  box-shadow: 0 6px 20px rgba(37,211,102,.25);
+  transition: .25s;
 }
-.btn:hover{ transform: translateY(-1px); opacity:.96 }
-.btn:focus{ outline: 2px solid rgba(37,211,102,.45); outline-offset:2px }
-.btn-ghost{ border:1px solid var(--border); border-radius:12px; padding:10px 14px; text-decoration:none; color:#cbd5e1 }
-.hero-copy{ position:relative; z-index:3 }
-.hero-photo{ position:relative; z-index:1 }
-.hero-photo::before, .hero-photo::after{ pointer-events:none }
+.btn:hover, .btn-whatsapp:hover{ transform: translateY(-1px); opacity:.95 }
+.btn:focus{ outline: 2px solid rgba(37,211,102,.4); outline-offset:2px }
 
 </style>
 </head>
@@ -172,7 +168,7 @@
       <div class="logo" aria-label="The 153 Bridge logo"></div>
       <div class="brand">The 153 Bridge</div>
     </div>
-    <nav><a class="btn-ghost" href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp" target="_blank" rel="noopener" aria-label="Entrar no grupo oficial do WhatsApp" href="#entrar">Entrar no grupo</a></nav>
+    <nav><a class="btn-ghost" href="#entrar">Entrar no grupo</a></nav>
   </header>
 
   <main>
@@ -199,7 +195,7 @@
       </div>
       <div class="cta-row" style="margin-top:22px;">
         <a class="btn"
-           href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp"
+           href="https://wa.me/5513991816158?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp"
            target="_blank" rel="noopener" aria-label="Entrar no grupo oficial do WhatsApp">Entrar no grupo GRATUITO</a>
         <a class="btn-ghost" href="#como-funciona">Como funciona</a>
       </div>
@@ -281,5 +277,24 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var wa = "https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=github&utm_medium=cta&utm_campaign=grupo_whatsapp";
+  document.querySelectorAll('a').forEach(function(a){
+    var t = (a.textContent || '').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().trim();
+    if (t.includes('entrar no grupo gratuito')) {
+      a.href = wa;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.setAttribute('aria-label','Entrar no grupo oficial do WhatsApp');
+      if (!(' ' + a.className + ' ').includes(' btn ')) {
+        a.className = (a.className + ' btn').trim();
+      }
+    }
+  });
+});
+</script>
+
 </body>
 </html>
