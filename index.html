@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <!-- Open Graph / WhatsApp Preview -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aprenda inglês com propósito — 1 dica por dia no WhatsApp">
@@ -54,10 +53,7 @@
   .kpi b{font-size:20px}
   .section{padding:48px 0;border-top:1px solid var(--border)}
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;text-align:center}
-  .card i{font-size:32px;margin-bottom:10px;color:var(--accent)}
-  .card h3{font-size:clamp(18px,2vw,22px);font-weight:700;color:var(--text);margin:10px 0 6px}
-  .card p{font-size:clamp(15px,1.8vw,17px);line-height:1.5;color:var(--muted);margin:0 auto;max-width:90%}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
   .list{display:grid;gap:10px;margin:12px 0;padding:0;list-style:none}
   .list li::before{content:"✓";margin-right:10px;color:#86efac}
   .testis{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
@@ -68,11 +64,22 @@
   .subtle{color:var(--muted)}
   .h2{font-size:clamp(22px,3.4vw,32px);margin:0 0 8px}
 
-  /* Seção PORQUE-FUNCIONA com foto de fundo (opção 1: leve desfoque + escurecimento) */
-  .porque-bg{position:relative;overflow:hidden}
-  .porque-bg::before{content:"";position:absolute;inset:0;background:url('assets/IMG_5655.PNG') center/cover no-repeat;filter:blur(1.6px) brightness(.92) saturate(1.06);opacity:.22;mix-blend:screen}
-  .porque-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.10) 0%, rgba(11,18,32,.40) 55%, rgba(11,18,32,.85) 100%)}
-  .porque-bg > .container{position:relative;z-index:1}
+  /* Efeito “Fendi” no herói (foto em cima, texto abaixo) */
+  .hero-photo{position:relative;flex:1;border-radius:20px;overflow:hidden}
+  .hero-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(11,18,32,1) 0%,rgba(11,18,32,.85) 10%,rgba(11,18,32,.55) 25%,rgba(11,18,32,.20) 50%,rgba(11,18,32,0) 70%);pointer-events:none;z-index:2}
+  .hero-photo img{display:block;width:100%;height:100%;max-height:540px;object-fit:cover;object-position:center 35%;filter:brightness(1.12) contrast(1.08) saturate(1.06)}
+  @media (max-width:768px){
+    .hero-photo::before{background:linear-gradient(180deg,rgba(11,18,32,.25) 0%,rgba(11,18,32,0) 80%)}
+    .hero-photo img{max-height:380px}
+  }
+  .hero-stack{position:relative;background:#0b1220}
+  .hero-stack .container{max-width:1120px;margin:0 auto;padding:24px}
+  .hero-image{position:relative;border-radius:20px;overflow:hidden}
+  .hero-image img{display:block;width:100%;height:auto;filter:brightness(1.08) contrast(1.06) saturate(1.05)}
+  .hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,18,32,0) 55%,rgba(11,18,32,.25) 72%,rgba(11,18,32,.55) 85%,rgba(11,18,32,.85) 100%);pointer-events:none}
+  .hero-copy-block{margin-top:18px}
+  @media (min-width:900px){.hero-copy-block{margin-top:24px}}
+  
 
   /* ===== VCL (vídeo com CTA de áudio, sem WhatsApp no vídeo) ===== */
   .vcl{position:relative}
@@ -101,8 +108,6 @@
     <!-- HERO -->
     <section class="hero hero-stack">
       <div class="container">
-        <figure class="hero-image">
-          <img src="assets/hero.jpg" alt="Expert The Bridge 153 ensinando inglês">
         </figure>
 
         <div class="hero-copy-block">
@@ -137,7 +142,7 @@
       <div class="container" style="padding-top:12px;">
         <div class="frame" id="vcl-frame">
           <iframe id="vcl-player" class="yt"
-            src="https://www.youtube-nocookie.com/embed/ML ETDoksxOw?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=MLETDoksxOw&enablejsapi=1"
+            src="https://www.youtube-nocookie.com/embed/MLETDoksxOw?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=MLETDoksxOw&enablejsapi=1"
             title="Apresentação — The 153 Bridge"
             allow="autoplay; encrypted-media; picture-in-picture; accelerometer; clipboard-write; gyroscope; web-share"
             allowfullscreen></iframe>
@@ -154,27 +159,25 @@
       </div>
     </section>
 
-    <!-- O QUE RECEBE (com ícones + Lives) -->
+    <!-- O QUE RECEBE -->
     <section class="container section" id="o-que-recebe">
       <h2 class="h2">O que você vai receber no grupo</h2>
       <div class="cards">
-        <div class="card"><i class="fa-solid fa-lightbulb"></i><h3>Daily Tip</h3><p class="subtle">1 dica por dia com frase aplicada no contexto real.</p></div>
-        <div class="card"><i class="fa-solid fa-headphones"></i><h3>Mini-áudios</h3><p class="subtle">Pronúncia guiada para treinar de onde estiver.</p></div>
-        <div class="card"><i class="fa-solid fa-comment-dots"></i><h3>Frases prontas</h3><p class="subtle">Modelos essenciais para trabalho, viagens e conversas.</p></div>
-        <div class="card"><i class="fa-solid fa-bolt"></i><h3>Mini desafios</h3><p class="subtle">Prática rápida e feedback no grupo.</p></div>
-        <div class="card"><i class="fa-solid fa-gift"></i><h3>Bônus semanais</h3><p class="subtle">Séries, músicas e apps para pensar em inglês.</p></div>
-        <div class="card"><i class="fa-solid fa-video"></i><h3>Lives periódicas</h3><p class="subtle">Encontros ao vivo para você se conectar e tirar dúvidas em tempo real.</p></div>
+        <div class="card"><h3>Daily Tip</h3><p class="subtle">1 dica por dia com frase aplicada no contexto real.</p></div>
+        <div class="card"><h3>Mini-áudios</h3><p class="subtle">Pronúncia guiada para treinar de onde estiver.</p></div>
+        <div class="card"><h3>Frases prontas</h3><p class="subtle">Modelos essenciais para trabalho, viagens e conversas.</p></div>
+        <div class="card"><h3>Mini desafios</h3><p class="subtle">Prática rápida e feedback no grupo.</p></div>
+        <div class="card"><h3>Bônus semanais</h3><p class="subtle">Séries, músicas e apps para pensar em inglês.</p></div>
+ 	<div class="card"><h3>Lives Periodicas</h3><p class="subtle">Lives on-line e ao vivo para te ajudar a se conectar ainda mais com o seu novo idioma.</p></div>
       </div>
     </section>
 
-    <!-- POR QUE FUNCIONA (com foto de fundo) -->
-    <section class="container section porque-bg" id="porque-funciona">
-      <div class="container">
-        <h2 class="h2">Por que esse método funciona</h2>
-        <p class="subtle">O erro de quem tenta aprender inglês está em <b>tentar demais</b>. Nosso método é o oposto: <b>menos é mais</b>.</p>
-        <p class="subtle">Ao receber <b>1 dica por dia</b>, com contexto e aplicação prática, seu cérebro absorve sem esforço. Quando a constância vira rotina, o aprendizado se torna natural.</p>
-        <p class="subtle"><b>A chave não é estudar mais. É estudar com propósito.</b></p>
-      </div>
+    <!-- POR QUE FUNCIONA -->
+    <section class="container section" id="porque-funciona">
+      <h2 class="h2">Por que esse método funciona</h2>
+      <p class="subtle">O erro de quem tenta aprender inglês está em <b>tentar demais</b>. Nosso método é o oposto: <b>menos é mais</b>.</p>
+      <p class="subtle">Ao receber <b>1 dica por dia</b>, com contexto e aplicação prática, seu cérebro absorve sem esforço. Quando a constância vira rotina, o aprendizado se torna natural.</p>
+      <p class="subtle"><b>A chave não é estudar mais. É estudar com propósito.</b></p>
     </section>
 
     <!-- DEPOIMENTOS -->
@@ -222,7 +225,7 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 
-<!-- Normalizador para qualquer CTA com o label 'Entrar no grupo GRATUITO' -->
+<!-- Normalizador para qualquer CTA com o label 'Entrar no grupo GRATUITO' (mantido do seu arquivo) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var wa = "https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=github&utm_medium=cta&utm_campaign=grupo_whatsapp";
