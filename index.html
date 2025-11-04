@@ -79,7 +79,6 @@
   .hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,18,32,0) 55%,rgba(11,18,32,.25) 72%,rgba(11,18,32,.55) 85%,rgba(11,18,32,.85) 100%);pointer-events:none}
   .hero-copy-block{margin-top:18px}
   @media (min-width:900px){.hero-copy-block{margin-top:24px}}
-  
 
   /* ===== VCL (vídeo com CTA de áudio, sem WhatsApp no vídeo) ===== */
   .vcl{position:relative}
@@ -108,6 +107,8 @@
     <!-- HERO -->
     <section class="hero hero-stack">
       <div class="container">
+        <figure class="hero-image">
+          <img src="assets/hero.jpg" alt="Expert The Bridge 153 ensinando inglês">
         </figure>
 
         <div class="hero-copy-block">
@@ -129,9 +130,9 @@
           </div>
 
           <div class="kpis" style="margin-top:22px;">
-            <div class="kpi"><b>On-line</b><div class="subtle">Dicas práticas</div></div>
-            <div class="kpi"><b>Rápido</b><div class="subtle">na sua mão</div></div>
-            <div class="kpi"><b>R$ 0,00</b><div class="subtle">acesso gratuito</div></div>
+            <div class="kpi"><b>1×/dia</b><div class="subtle">Dica prática</div></div>
+            <div class="kpi"><b>5–7 min</b><div class="subtle">por atividade</div></div>
+            <div class="kpi"><b>R$ 0</b><div class="subtle">acesso gratuito</div></div>
           </div>
         </div>
       </div>
@@ -159,13 +160,7 @@
       </div>
     </section>
 
-    <!-- JORNADA / PROPÓSITO -->
-    <section class="container section" id="proposito">
-      <h2 class="h2">A jornada que conecta propósito e aprendizado</h2>
-      <p class="subtle">O <b>The 153 Bridge</b> nasceu com uma missão simples: conectar pessoas, conhecimento e propósito através de experiências transformadoras. E o inglês é uma das chaves mais poderosas dessa jornada.</p>
-      <p class="subtle">Por isso, criamos um grupo gratuito no WhatsApp com <b>dicas diárias</b>, <b>áudios curtos</b> e <b>mini desafios</b> — para você aprender todos os dias sem perder tempo, sem pressão e sem enrolação.</p>
-      <p class="subtle"><i>O nome “153” vem de João 21:10–11 — símbolo de plenitude e propósito. Cada palavra, cada conexão, cada aprendizado... tem um significado.</i></p>
-    </section>
+    <!-- Removido: JORNADA / PROPÓSITO (#proposito) -->
 
     <!-- O QUE RECEBE -->
     <section class="container section" id="o-que-recebe">
@@ -232,7 +227,7 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 
-<!-- Normalizador para qualquer CTA com o label 'Entrar no grupo GRATUITO' (mantido do seu arquivo) -->
+<!-- Normalizador para qualquer CTA com o label 'Entrar no grupo GRATUITO' -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var wa = "https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=github&utm_medium=cta&utm_campaign=grupo_whatsapp";
