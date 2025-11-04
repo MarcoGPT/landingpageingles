@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo-alt.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <!-- Open Graph / WhatsApp Preview -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aprenda inglês com propósito — 1 dica por dia no WhatsApp">
@@ -17,18 +19,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/logo-alt.jpg">
 <style>
-  :root{
-    --bg:#0b1220;
-    --panel:#0c172b;
-    --border:#14243d;
-    --text:#e2e8f0;
-    --muted:#9db1cc;
-    --brand:#0ea5e9;
-    --brand-2:#1d4ed8;
-    --accent:#f59e0b;
-  }
+  :root{ --bg:#0b1220; --panel:#0c172b; --border:#14243d; --text:#e2e8f0; --muted:#9db1cc; --brand:#0ea5e9; --brand-2:#1d4ed8; --accent:#f59e0b; }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(70% 70% at 20% 0%, rgba(14,165,233,.08), transparent 60%), radial-gradient(50% 60% at 85% 15%, rgba(245,158,11,.08), transparent 60%), var(--bg)}
@@ -37,8 +29,7 @@
   .logo-wrap{display:flex;gap:12px;align-items:center}
   .logo{width:44px;height:44px;border-radius:12px;background:#0c1b33 url('assets/logo-alt.jpg') center/cover no-repeat;border:1px solid var(--border)}
   .brand{font-weight:800;letter-spacing:.3px}
-  /* Botões: verde WhatsApp */
-  .btn, .btn-whatsapp{display:inline-block;padding:14px 18px;border-radius:14px;font-weight:800;background:linear-gradient(90deg,#25D366,#1ebe57);box-shadow:0 10px 22px rgba(37,211,102,.25);text-decoration:none;color:#fff;transition:.2s;border:none}
+  .btn,.btn-whatsapp{display:inline-block;padding:14px 18px;border-radius:14px;font-weight:800;background:linear-gradient(90deg,#25D366,#1ebe57);box-shadow:0 10px 22px rgba(37,211,102,.25);text-decoration:none;color:#fff;transition:.2s;border:none}
   .btn:hover{transform:translateY(-1px);opacity:.96}
   .btn:focus{outline:2px solid rgba(37,211,102,.4);outline-offset:2px}
   .btn-ghost{border:1px solid var(--border);border-radius:12px;padding:10px 14px;text-decoration:none;color:#cbd5e1}
@@ -63,15 +54,10 @@
   footer{border-top:1px solid var(--border);padding:18px 0;color:#94a3b8}
   .subtle{color:var(--muted)}
   .h2{font-size:clamp(22px,3.4vw,32px);margin:0 0 8px}
-
-  /* Efeito “Fendi” no herói (foto em cima, texto abaixo) */
   .hero-photo{position:relative;flex:1;border-radius:20px;overflow:hidden}
   .hero-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(11,18,32,1) 0%,rgba(11,18,32,.85) 10%,rgba(11,18,32,.55) 25%,rgba(11,18,32,.20) 50%,rgba(11,18,32,0) 70%);pointer-events:none;z-index:2}
   .hero-photo img{display:block;width:100%;height:100%;max-height:540px;object-fit:cover;object-position:center 35%;filter:brightness(1.12) contrast(1.08) saturate(1.06)}
-  @media (max-width:768px){
-    .hero-photo::before{background:linear-gradient(180deg,rgba(11,18,32,.25) 0%,rgba(11,18,32,0) 80%)}
-    .hero-photo img{max-height:380px}
-  }
+  @media (max-width:768px){.hero-photo::before{background:linear-gradient(180deg,rgba(11,18,32,.25) 0%,rgba(11,18,32,0) 80%)}.hero-photo img{max-height:380px}}
   .hero-stack{position:relative;background:#0b1220}
   .hero-stack .container{max-width:1120px;margin:0 auto;padding:24px}
   .hero-image{position:relative;border-radius:20px;overflow:hidden}
@@ -79,9 +65,6 @@
   .hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,18,32,0) 55%,rgba(11,18,32,.25) 72%,rgba(11,18,32,.55) 85%,rgba(11,18,32,.85) 100%);pointer-events:none}
   .hero-copy-block{margin-top:18px}
   @media (min-width:900px){.hero-copy-block{margin-top:24px}}
-  
-
-  /* ===== VCL (vídeo com CTA de áudio, sem WhatsApp no vídeo) ===== */
   .vcl{position:relative}
   .vcl .frame{position:relative;width:100%;max-width:1120px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35);aspect-ratio:16/9;background:var(--panel)}
   .vcl .yt{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -90,9 +73,14 @@
   .vcl .meta{text-align:center;margin-top:16px;color:var(--muted)}
   @media (max-width:860px){.vcl .cta-float{bottom:6%}}
   @media (max-width:560px){.vcl .cta-float{bottom:5%}}
-
-  /* Fade-out do botão após ativar o som */
-  #btn-audio.fade-out { transition: opacity .6s ease, transform .6s ease; opacity: 0; transform: translateY(6px); pointer-events: none; }
+  #btn-audio.fade-out{transition:opacity .6s ease,transform .6s ease;opacity:0;transform:translateY(6px);pointer-events:none}
+  .card i{font-size:28px;margin-right:8px;color:var(--accent)}
+  .card h3{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-weight:700}
+  .card p{margin:0}
+  .porque-bg{position:relative;overflow:hidden}
+  .porque-bg::before{content:"";position:absolute;inset:0;background:url('assets/IMG_5655.PNG') center/cover no-repeat;filter:blur(1.6px) brightness(.92) saturate(1.06);opacity:.22;mix-blend:screen}
+  .porque-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.08) 0%,rgba(11,18,32,.35) 55%,rgba(11,18,32,.85) 100%)}
+  .porque-bg > .container{position:relative;z-index:1}
 </style>
 </head>
 <body>
@@ -108,27 +96,18 @@
     <!-- HERO -->
     <section class="hero hero-stack">
       <div class="container">
+        <figure class="hero-image">
+          <img src="assets/hero.jpg" alt="Expert The Bridge 153 ensinando inglês">
         </figure>
-
         <div class="hero-copy-block">
           <span class="tag">Inglês para todos  • 100% gratuito</span>
-          <h1 style="margin-top:16px;">
-            Aprenda inglês com conteúdo diário.<br>
-            <span style="color:#7dd3fc">Na palma</span> da sua mão, direto no seu WhatsApp.
-          </h1>
-          <p class="lead">
-            Nada de cursos longos ou promessas vazias. Aqui você destrava o inglês de verdade, com professores online e ao vivo.
-          </p>
-          <div class="tag" id="vagas-badge" style="margin-top:8px">Vagas limitadas para as novas turmas</div>
-
-          <div class="cta-row" style="margin-top:22px;">
-            <a class="btn"
-               href="https://wa.me/5513991816158?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp"
-               target="_blank" rel="noopener" aria-label="Entrar no grupo oficial do WhatsApp">Entrar no grupo GRATUITO</a>
+          <h1>Aprenda inglês com conteúdo diário.<br><span style="color:#7dd3fc">Na palma</span> da sua mão, direto no seu WhatsApp.</h1>
+          <p class="lead">Nada de cursos longos ou promessas vazias. Aqui você destrava o inglês de verdade, com professores online e ao vivo.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://wa.me/5513991816158?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=site&utm_medium=cta&utm_campaign=grupo_whatsapp" target="_blank" rel="noopener">Entrar no grupo GRATUITO</a>
             <a class="btn-ghost" href="#como-funciona">Como funciona</a>
           </div>
-
-          <div class="kpis" style="margin-top:22px;">
+          <div class="kpis">
             <div class="kpi"><b>On-line</b><div class="subtle">Dicas práticas</div></div>
             <div class="kpi"><b>Rápido</b><div class="subtle">na sua mão</div></div>
             <div class="kpi"><b>R$ 0,00</b><div class="subtle">acesso gratuito</div></div>
@@ -137,152 +116,17 @@
       </div>
     </section>
 
-    <!-- VCL: VÍDEO COM OVERLAY (não clicável) + botão “Ativar som” -->
-    <section class="vcl">
-      <div class="container" style="padding-top:12px;">
-        <div class="frame" id="vcl-frame">
-          <iframe id="vcl-player" class="yt"
-            src="https://www.youtube-nocookie.com/embed/MLETDoksxOw?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=MLETDoksxOw&enablejsapi=1"
-            title="Apresentação — The 153 Bridge"
-            allow="autoplay; encrypted-media; picture-in-picture; accelerometer; clipboard-write; gyroscope; web-share"
-            allowfullscreen></iframe>
-
-          <!-- Overlay captura cliques (não abre YouTube) -->
-          <div class="overlay" aria-hidden="true"></div>
-
-          <!-- Som com 1 toque -->
-          <div class="cta-float">
-            <button id="btn-audio" class="btn" type="button" style="cursor:pointer">🔊 Ativar som</button>
-          </div>
-        </div>
-        <div class="meta" id="audio-hint">Toque em “Ativar som” para ouvir o vídeo sem sair da página.</div>
-      </div>
-    </section>
-
-    <!-- O QUE RECEBE -->
-    <section class="container section" id="o-que-recebe">
-      <h2 class="h2">O que você vai receber no grupo</h2>
-      <div class="cards">
-        <div class="card"><h3>Daily Tip</h3><p class="subtle">1 dica por dia com frase aplicada no contexto real.</p></div>
-        <div class="card"><h3>Mini-áudios</h3><p class="subtle">Pronúncia guiada para treinar de onde estiver.</p></div>
-        <div class="card"><h3>Frases prontas</h3><p class="subtle">Modelos essenciais para trabalho, viagens e conversas.</p></div>
-        <div class="card"><h3>Mini desafios</h3><p class="subtle">Prática rápida e feedback no grupo.</p></div>
-        <div class="card"><h3>Bônus semanais</h3><p class="subtle">Séries, músicas e apps para pensar em inglês.</p></div>
- 	<div class="card"><h3>Lives Periodicas</h3><p class="subtle">Lives on-line e ao vivo para te ajudar a se conectar ainda mais com o seu novo idioma.</p></div>
-      </div>
-    </section>
-
     <!-- POR QUE FUNCIONA -->
-    <section class="container section" id="porque-funciona">
-      <h2 class="h2">Por que esse método funciona</h2>
-      <p class="subtle">O erro de quem tenta aprender inglês está em <b>tentar demais</b>. Nosso método é o oposto: <b>menos é mais</b>.</p>
-      <p class="subtle">Ao receber <b>1 dica por dia</b>, com contexto e aplicação prática, seu cérebro absorve sem esforço. Quando a constância vira rotina, o aprendizado se torna natural.</p>
-      <p class="subtle"><b>A chave não é estudar mais. É estudar com propósito.</b></p>
-    </section>
-
-    <!-- DEPOIMENTOS -->
-    <section class="container section" id="depoimentos">
-      <h2 class="h2">Depoimentos de quem já vive a experiência</h2>
-      <div class="testis">
-        <div class="testi"><div class="avatar"></div><div><b>Juliana M.</b><br><span class="subtle">“Criei rotina. Em 3 semanas já falava frases que antes travavam!”</span></div></div>
-        <div class="testi"><div class="avatar"></div><div><b>Rafael S.</b><br><span class="subtle">“Áudios curtos e exemplos práticos salvaram minhas reuniões.”</span></div></div>
-        <div class="testi"><div class="avatar"></div><div><b>Ana Paula</b><br><span class="subtle">“As dicas são leves e eficazes. Me sinto acompanhada.”</span></div></div>
-      </div>
-      <p class="center subtle" style="margin-top:10px">+300 pessoas já começaram essa jornada. Agora é a sua vez.</p>
-    </section>
-
-    <!-- COMO PARTICIPAR -->
-    <section class="container section" id="como-funciona">
-      <h2 class="h2">Como participar</h2>
-      <ul class="list">
-        <li>Clique no botão abaixo.</li>
-        <li>Entre no grupo gratuito do WhatsApp.</li>
-        <li>Receba todos os dias uma nova dica para evoluir.</li>
-      </ul>
-      <p class="center">
-        <a class="btn" id="entrar" href="https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!" target="_blank" rel="noopener">
-          Entrar agora no grupo gratuito (WhatsApp)
-        </a>
-      </p>
-    </section>
-
-    <!-- SOBRE -->
-    <section class="container section" id="sobre">
-      <h2 class="h2">Sobre o The 153 Bridge</h2>
-      <p class="subtle">Somos uma comunidade que acredita que cada pessoa tem um propósito — e que aprender é uma das formas mais poderosas de alcançá-lo.</p>
-      <p class="subtle">O <b>The 153 Bridge</b> é mais do que uma marca: é uma ponte entre o que você é hoje e o que foi chamado para ser. Através de viagens, experiências e agora — aprendizado — conectamos pessoas, culturas e vidas com significado.</p>
-    </section>
-
-    <footer>
+    <section class="container section porque-bg" id="porque-funciona">
       <div class="container">
-        © <span id="yr"></span> The 153 Bridge — Todos os direitos reservados.
-        <div class="subtle">Contato: WhatsApp (31) 99812-2425 · Instagram @the153bridge</div>
+        <h2 class="h2">Por que esse método funciona</h2>
+        <p class="subtle">O erro de quem tenta aprender inglês está em <b>tentar demais</b>. Nosso método é o oposto: <b>menos é mais</b>.</p>
+        <p class="subtle">Ao receber <b>1 dica por dia</b>, com contexto e aplicação prática, seu cérebro absorve sem esforço. Quando a constância vira rotina, o aprendizado se torna natural.</p>
+        <p class="subtle"><b>A chave não é estudar mais. É estudar com propósito.</b></p>
       </div>
-    </footer>
+    </section>
   </main>
-
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
-
-<!-- Normalizador para qualquer CTA com o label 'Entrar no grupo GRATUITO' (mantido do seu arquivo) -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var wa = "https://wa.me/5531998122425?text=Quero%20entrar%20no%20grupo%20de%20dicas%20di%C3%A1rias%20de%20ingl%C3%AAs!&utm_source=github&utm_medium=cta&utm_campaign=grupo_whatsapp";
-  document.querySelectorAll('a').forEach(function(a){
-    var t = (a.textContent || '').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().trim();
-    if (t.includes('entrar no grupo gratuito')) {
-      a.href = wa;
-      a.target = '_blank';
-      a.rel = 'noopener';
-      a.setAttribute('aria-label','Entrar no grupo oficial do WhatsApp');
-      if (!(' ' + a.className + ' ').includes(' btn ')) {
-        a.className = (a.className + ' btn').trim();
-      }
-    }
-  });
-});
-</script>
-
-<!-- YouTube IFrame API (ativa som com 1 toque) -->
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  var ytPlayer;
-  function onYouTubeIframeAPIReady() {
-    ytPlayer = new YT.Player('vcl-player', {
-      events: {
-        onReady: function(e){
-          try { e.target.mute(); e.target.playVideo(); } catch(_) {}
-        }
-      }
-    });
-  }
-
-  // Botão "Ativar som" com fallback e fade-out após sucesso
-  document.addEventListener('click', function(ev){
-    var btn = ev.target.closest('#btn-audio');
-    if (!btn || !ytPlayer) return;
-    var hint = document.getElementById('audio-hint');
-    try {
-      ytPlayer.setVolume(100);
-      ytPlayer.playVideo();
-      ytPlayer.unMute();
-      ytPlayer.playVideo();
-      setTimeout(function() {
-        if (typeof ytPlayer.isMuted === 'function' && !ytPlayer.isMuted()) {
-          btn.textContent = '🔊 Som ativado';
-          btn.disabled = true;
-          btn.classList.add('fade-out');
-          if (hint) hint.textContent = 'Som ligado ✅';
-        } else {
-          if (hint) hint.textContent = 'Se ainda estiver sem som, toque novamente.';
-        }
-      }, 250);
-    } catch(_) {
-      if (hint) hint.textContent = 'Toque novamente para ativar o som.';
-    }
-  });
-</script>
-
 </body>
 </html>
+
+<!-- EOF -->
